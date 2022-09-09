@@ -1,0 +1,78 @@
+RDBMS (Structured Data):
+========================
+	Seach               (Subscriber ID)
+	Subscriber/Customer (Subscriber ID)
+	Payment......
+	
+	Relation would be created between entities (tables) of the database
+	
+	
+	Table (DB)    ---   Entities (Program)
+	==========
+		One - One [Employee (has a)- Department]
+		One - Many  [Manager - Employees], [Movie - Songs]
+		Many - One  [Employees - Organization] [Employees - Project]
+		Many - Many [Managers - Projects]
+	
+	Monthly Statement:
+	------------------
+	
+	CAP Theorem: (Semi-Structured or UnStructred)
+	============
+		Consistency (consistency among the data records)
+		Availability (Continuous Read/Write)
+		Partition Tolerance (Even if there is a network failure, still we can access data)
+	
+	
+	
+Data Federations:
+==================
+	Single DB --- Multiple Tables
+	Data Fedaration - Multiple DBs [Micro services]
+	
+	Search [DB: RDBMS [Limited Records - 1 Week], [MongoDB - 6 Months]]
+	Cart
+	Item Purchase     [Limited Records - 1 Day], [MongoDB - 6 Months]]
+	                      OLTP                         OLAP
+						  
+Physical Servers
+RAK [Series of Servers]
+Cloud [Amazon, Azure, GCP, Oracle]
+
+
+	Mobile App:
+	===========
+		1. Search
+		2. Cart
+		3. Purchase Order
+		4. Reporting
+		
+		Q1. What databases are suitable for me to use in each of these use cases [CAP Theorem]
+		Q2. How to integrate these databases for the applications to use
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
