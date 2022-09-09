@@ -365,4 +365,31 @@ Matplotlib: Python Library for Visualization
  -------------
 	Donut charts will be created from Pie charts only
 	radius = 2
+	
+	
+	https://github.com/anandmikkili/DBMS_Data_Analytics.git
  
+ 
+Seaborn:
+========
+	https://seaborn.pydata.org/generated/seaborn.heatmap.html
+	
+	1. Line Plot:
+	2. Bar Plot
+	3. Scatter Plot
+	4. Histogram
+	5. Box Plot
+	6. Jpoint Plot(Scatter Plot + Histogram)
+	7. Pair Plots
+	8. HeatMap
+
+Plotly: [Interactive Plots]
+===========================
+	https://plotly.com/python/treemaps/
+	
+	1. Treemap chart:
+	-----------------
+	
+	2. Sunburst chart:
+	------------------
+	
