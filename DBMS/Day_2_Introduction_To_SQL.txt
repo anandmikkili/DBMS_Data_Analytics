@@ -1,0 +1,146 @@
+1. Data Types:
+===========
+
+2. Data Description Language (DDL) Related Queries:
+===================================================
+	1. SQL Server Instance (sqlserveranand)
+	     1. ecommercedb (Database)
+		     1. PRODUCT (Table)
+					1. PRODUCT_ID (PK)   (Column)
+					2. PRODUCT_NAME      (Column)
+					3. PRODUCT_DESC
+					4. PRODUCT_PRICE
+					5. PRODUCT_RATING
+			 2. ORDERS (Table)
+					1. ORDER_ID (PK)
+					2. ORDER_PRODUCT_ID (FK)
+					3. ORDER_PRODUCT_QUANTITY
+					4. ORDER_BILLING_PRICE
+			 3. PAYMENT (Table)
+					1. PAYMENT_ID (PK)
+					2. PAYMENT_ORDER_ID (FK)
+					3. PAYMENT_MODE
+					4. TOTAL_PAYMENT_AMOUNT
+					5. PAYMENT_DATE
+		 2. ecommerceshefali (Database)
+		 3. ecommercevineeth (Database)
+
+
+	DDL: DDL deals with operations on the meta data of the databases, tables and it's columns
+	DDL Operations:
+	===============
+		Database:
+		---------
+			Create a database:
+			------------------
+				CREATE DATABASE ECOMMERCEDB1;
+			Dropping a database:
+			--------------------
+				DROP DATABASE ECOMMERCEDB1;
+			Using a database:
+			-----------------
+				USE ECOMMERCEDB1;
+		Table:
+		------
+			Creating a table:
+			-----------------
+				CREATE TABLE PRODUCT(PRODUCT_ID INT NOT NULL, PRODUCT_NAME VARCHAR(255) NOT NULL, PRODUCT_DESC VARCHAR(255), PRODUCT_PRICE DECIMAL(10,2), PRIMARY KEY(PRODUCT_ID)); 
+				
+				
+			Dropping a table:
+			-----------------
+				DROP TABLE PRODUCT; 
+			Altering a table:
+			-----------------
+				ALTER TABLE PRODUCT ADD PRODUCT_RATING INT;
+				ALTER TABLE PRODUCT DROP COLUMN PRODUCT_RATING;
+				ALTER TABLE PRODUCT ALTER COLUMN PRODUCT_PRICE INT;       
+			
+		
+3. Data Manipulation Language (DML) Related Queries:
+====================================================
+	Dealing actual data persistence related queries
+	CRUD Operations:
+	----------------
+		C - Copy (Insert)
+		R - Read (Select)
+		U - Update
+		D - Delete
+		
+	Copy Operation:
+	---------------
+		INSERT INTO PRODUCT(PRODUCT_ID, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_PRICE, PRODUCT_RATING) VALUES (1,'Dell Laptop', 'Dell 16GB RAM 1 TB SSD Intel i10 4GB GC', 100000, 5);
+		
+		INSERT INTO PRODUCT VALUES (1,'HP Laptop', 'HP 16GB RAM 1 TB SSD Intel i10 4GB GC', 95000, 4);
+		
+		INSERT INTO PRODUCT VALUES (4,'HP Laptop', 'HP 8GB RAM 1 TB SSD Intel i7 4GB GC', 75000, 4);
+		
+		INSERT INTO PRODUCT VALUES (5,'Asus Laptop', 'Asus 16GB RAM 1 TB SSD Intel i10 4GB GC', 80000, 4.5);
+		
+		INSERT INTO PRODUCT VALUES (6,'Asus Laptop', 'Asus 8GB RAM 1 TB SSD Intel i7 4GB GC', 60000, 3);
+		
+	
+	Read Operation:
+	---------------
+		SELECT * FROM PRODUCT;      [Selecting all columns of the table for all records]
+		SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT;  [Selecting only specific columns of the table for all records]
+	
+		Filtering:  [If we want to select only specific rows by applying some condition]
+		----------
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE RATING>=4;
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE PRODUCT_RATING>=4 AND PRODUCT_PRICE>80000;
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE PRODUCT_RATING>=4 OR PRODUCT_PRICE>80000;
+			
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE (PRODUCT_RATING>=4 OR PRODUCT_PRICE>80000) AND PRODUCT_NAME LIKE 'D%';
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE (PRODUCT_RATING>=4 OR PRODUCT_PRICE>80000) AND PRODUCT_NAME LIKE '%Laptop';
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE (PRODUCT_RATING>=4 OR PRODUCT_PRICE>80000) AND PRODUCT_NAME LIKE '%Lap%';
+			
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE PRODUCT_NAME IN ('Dell Laptop', 'Asus Laptop');
+			
+			AND GATE(*)Intersection         OR GATE(+) Union
+			--------         				-------
+			T  T  ==> T      				T  T   ===> T
+			T  F  ==> F      				T  F   ===> T
+			F  T  ==> F      				F  T   ===> T
+			F  F  ==> F      				F  F   ===> F
+			
+		Ordering:
+        ---------
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE (PRODUCT_RATING>=4 OR PRODUCT_PRICE>80000) ORDER BY PRODUCT_PRICE ASC;
+			SELECT PRODUCT_NAME, PRODUCT_PRICE FROM PRODUCT WHERE (PRODUCT_RATING>=4 OR PRODUCT_PRICE>80000) ORDER BY PRODUCT_PRICE DESC;
+			
+		Aggregate Operation:
+		--------------------
+			Sum(), Avg(), Count()
+			SELECT COUNT(*) FROM PRODUCT WHERE PRODUCT_PRICE>80000;
+			SELECT SUM(PRODUCT_PRICE) FROM PRODUCT WHERE PRODUCT_PRICE>80000;
+			SELECT AVG(PRODUCT_PRICE) FROM PRODUCT WHERE PRODUCT_PRICE>80000;
+		
+		Grouping:
+        ---------
+			SELECT PRODUCT_NAME FROM PRODUCT GROUP BY PRODUCT_NAME;
+			SELECT PRODUCT_NAME, AVG(PRODUCT_PRICE) FROM PRODUCT GROUP BY PRODUCT_NAME;
+			SELECT PRODUCT_NAME, COUNT(PRODUCT_NAME) FROM PRODUCT GROUP BY PRODUCT_NAME;
+			SELECT PRODUCT_NAME, COUNT(PRODUCT_NAME) FROM PRODUCT GROUP BY PRODUCT_NAME ORDER BY PRODUCT_NAME;
+		
+	Task:
+	-----
+		SELECT A.PN, A.CNT FROM (SELECT PRODUCT_NAME AS PN, COUNT(PRODUCT_NAME) AS CNT FROM PRODUCT GROUP BY PRODUCT_NAME) A ORDER BY A.CNT DESC;
+		Select laptop names whose average price is higher than 150000;
+			select x.pn, x.avg_price from(select product_name as pn, avg(product_price) as avg_price from product group by product_name)x where x.avg_price>150000;
+	
+	Update Operation:
+	-----------------
+		UPDATE PRODUCT SET PRODUCT_PRICE=98000 WHERE PRODUCT_ID=1;
+		UPDATE PRODUCT SET PRODUCT_PRICE=97500, PRODUCT_DESC='Dell 16GB RAM 1 TB SSD Intel i10 4GB GC 15'10' WHERE PRODUCT_ID=1;
+	
+	Delete Operation:
+	-----------------
+		DELETE * FROM PRODUCT;
+		DELETE * FROM PRODUCT WHERE PRODUCT_NAME='Asus Laptop';
+			
+			or
+			
+		DELETE FROM PRODUCT;
+		DELETE FROM PRODUCT WHERE PRODUCT_NAME='Asus Laptop';
+		

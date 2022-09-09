@@ -1,0 +1,459 @@
+########################################
+#       Introduction to Python         #
+#       =======================        #
+#          Language Fundamentals       #
+#          Data Structures of Language #
+#          Operators                   #
+#          Flow Control                #
+#          Iterative Statements        #
+#		   Functions in Python         #
+#          Input/Output Operations     #
+########################################
+
+History Of Python:
+==================
+	Python was in 1989 by Guido Van Rossum Feb 20th 1991
+	1991 - 2003
+	
+	C, C++
+	
+	Formulation of Python:
+	----------------------
+		Functional Programming was adopted from C
+		OOP concepts were adopted from C++
+		Scripting language features were adopted from Perl & Shell
+		Modular features were adopted from Modula-3 [Programs are getting divided into different modules]
+		Syntax were adopted mostly from C & ABC languages
+		
+Where Can I use the Python:
+===========================
+	Desktop Applications 
+	Web Applications        ..............20%
+	Database Applications
+	Networking Applications
+	Gaming Applications
+	Data Analytics          ..............10%
+	Machine Learning/AI/IOT ..............70%
+
+Features of Python:
+===================
+	1. 30-35 keywords [58 keywords in Java]
+			Very less code to process
+	2. Open Source Language
+	3. High Level Programming Language
+	       .html ==> Execution  [Low Level]
+		   .py   ==> Compiler  ====> ByteCode(Execute)
+	4. Dynamically Typed Programming Language
+	      int x=10;
+		      x=10
+	5. Portable
+	6. Both Procedure Oriented (C) & Object Oriented (C++)
+	7. Rich Library Support
+	8. Extensible
+Python Versions:
+================
+	Version 1.0 1994
+	Version 2.0 2000
+	Version 3.0 2008
+	
+	No backward compatiable
+		
+
+Language Fundamentals:
+======================
+	1. Keywords:
+	--------------
+		33-35 keywords in Python
+		
+	2. Data Types:
+	--------------
+		Single Value Holders (Primitive Data Types):
+		---------------------
+			Numbers:
+			--------
+				1. Integer (int)
+				2. Flaoting (float)
+				3. Complex   (complex)
+			Textual:
+			--------
+				4. String (str)
+			Boolean:
+			--------
+				5. Boolean (bool)
+		
+		Multiple Value Holders (User Defined Data Types):
+		-----------------------
+			1. Bytes homogeneous data types, [0-255] ..... bytes().....Only integers
+			------------------------------
+				How to insert elements into Bytes?
+				----------------------------------
+					Create a list and convert into Bytes
+					x = [0,5,10,15,20]
+					b = bytes(x)
+				
+				How to retrieve elements from Bytes?
+				------------------------------------
+					Direct Indexing:
+					----------------
+						indexing ===> 0 -> len(b)  [0 - 4]
+						b[0], b[1], b[2], b[3]
+				
+					Slicing:
+					--------
+						b[0:2] ===> 0,1
+						b[:2]  ===> 0,1
+						
+						b[0:3] ===> 0,1,2
+						
+						b[1:3] ===> 1,2
+						
+						b[:-1]
+						
+						b[1:-1]
+				
+				Iterate over the Bytes:
+				-----------------------
+						for item in b:
+							print(item)
+							
+				Modification of Bytes:
+				----------------------
+					No modification is possible once Bytes is created since it is immutable
+						
+			2. Bytearray: homogeneous data types
+			-------------
+				How to insert elements into Bytearray?
+				----------------------------------
+					Create a list and convert into Bytearray
+					x = [0,5,10,15,20]
+					b = bytearray(x)
+				
+				How to retrieve elements from Bytearray?
+				------------------------------------
+					Direct Indexing:
+					----------------
+						indexing ===> 0 -> len(b)  [0 - 4]
+						b[0], b[1], b[2], b[3]
+				
+					Slicing:
+					--------
+						b[0:2] ===> 0,1
+						b[:2]  ===> 0,1
+						
+						b[0:3] ===> 0,1,2
+						
+						b[1:3] ===> 1,2
+						
+						b[:-1]
+						
+						b[1:-1]
+				
+				Iterate over the Bytearray:
+				-----------------------
+						for item in b:
+							print(item)
+							
+				Modification of Bytearray:
+				----------------------
+					Bytearray can be modified for the existing element but not extending the elments
+					b[0]=100
+					So bytearray is mutable
+					
+			3. Range:
+			----------
+			4. List:    [], heterogeneous datatypes
+			---------
+				How to insert elements into List?
+				----------------------------------
+					x = [0,'Kanishka',10+20j,15.78888,True]
+
+				
+				How to retrieve elements from List?
+				------------------------------------
+					Direct Indexing:
+					----------------
+						indexing ===> 0 -> len(b)  [0 - 4]
+						b[0], b[1], b[2], b[3]
+				
+					Slicing:
+					--------
+						b[0:2] ===> 0,1
+						b[:2]  ===> 0,1
+						
+						b[0:3] ===> 0,1,2
+						
+						b[1:3] ===> 1,2
+						
+						b[:-1]
+						
+						b[1:-1]
+				
+				Iterate over the List:
+				-----------------------
+						for item in b:
+							print(item)
+							
+				Modification of List:
+				----------------------
+					List is Mutable data type
+					List will allow to modify the existing element as well as appending elements at the end of list using append()
+					
+			5. Tuple: Heterogeneous Data Type, ()
+			---------
+				How to insert elements into Tuple?
+				----------------------------------
+					x = (0,'Kanishka',10+20j,15.78888,True,True)
+
+				
+				How to retrieve elements from Tuple?
+				------------------------------------
+					Direct Indexing:
+					----------------
+						indexing ===> 0 -> len(b)  [0 - 4]
+						b[0], b[1], b[2], b[3]
+				
+					Slicing:
+					--------
+						b[0:2] ===> 0,1
+						b[:2]  ===> 0,1
+						
+						b[0:3] ===> 0,1,2
+						
+						b[1:3] ===> 1,2
+						
+						b[:-1]
+						
+						b[1:-1]
+				
+				Iterate over the Tuple:
+				-----------------------
+						for item in b:
+							print(item)
+							
+				Modification of Tuple:
+				----------------------
+					Tuple is Immutable data type
+		
+			6. Set: Heterogeneous Data Type, {}
+			-------
+				How to insert elements into Set?
+				----------------------------------
+					x = {0,0,'Kanishka','Kanishka',10+20j,15.78888,True,True,False,False}
+
+				
+				How to retrieve elements from Set?
+				------------------------------------
+					Direct Indexing:
+					----------------
+						Not supports
+					Slicing:
+					--------
+						Not supported
+						
+				Iterate over the Set:
+				-----------------------
+						for item in b:
+							print(item)
+							
+				Modification of Set:
+				----------------------
+					Set is Mutable data type
+					x.add(100)		
+			
+			7. Frozenset:
+			--------------
+				How to insert elements into Frozenset?
+				----------------------------------
+					x = (0,0,'Kanishka','Kanishka',10+20j,15.78888,True,True,False,False)
+					fs = frozenset(x)
+
+				
+				How to retrieve elements from Frozenset?
+				------------------------------------
+					Direct Indexing:
+					----------------
+						Not supports
+					Slicing:
+					--------
+						Not supported
+						
+				Iterate over the Frozenset:
+				-----------------------
+						for item in b:
+							print(item)
+							
+				Modification of Frozenset:
+				----------------------
+					Frozenset is Immutable data type		
+			
+			
+			
+			8. Dict:   {}, Key-Value
+			---------
+				How to insert elements into Dict?
+				----------------------------------
+					x = {'Kanishka':90, 'Amith':80, 'Sibi':96, 'Sumith':70, 'Preethi':90,'Preethi':89}
+
+				
+				How to retrieve elements from Dict?
+				------------------------------------
+					Direct Indexing:
+					----------------
+						Not supports
+					Slicing:
+					--------
+						Not supported
+						
+				Iterate over the Dict:
+				-----------------------
+						for key, val in x.items():
+							print("Key is: ", key, "  Value is: ",val)
+							
+				Modification of Dict:
+				----------------------
+					Dicy  is Mutable data type
+					x['Anand']=100
+					x['Kanishka']=91
+					
+					
+					
+			x = {'Anand':1}
+			x = {1}	
+			
+			Empty Dictionary?
+			-----------------
+				x = {}
+			Empty Set?
+			-----------
+				x = set()
+				x=[] or list()
+				x=()
+				
+				
+			9. None
+	
+	
+	
+	3. Data Type Conversions:
+	-------------------------
+		int:
+		----
+			x=10
+			y = Float(x)
+		float:
+		-------
+		complex:
+		---------
+		str:
+		-----
+		bool:
+		-----
+		
+		
+		
+		
+	4. Constants:
+	-------------
+		Programmer has to take care of the variables declared/defined as constants
+	5. Operators:
+	-------------
+		1. Arithmetic Operators:
+		--------------------------
+			+, -, *, /, %, //(floor division), **(power)
+			
+		2. Relational Operators: (Comparision Operators)
+		--------------------------
+			>, <, >=, <=, ==, !=
+			Result: True/False
+		
+		3. Logical Operators:
+		---------------------
+			and, or, not
+			Boolean Data Type: True/False
+			Non-Boolean Data Type: Evaluated value would come
+			
+		4. Bitwise Operators:
+		-----------------------
+			& (bitwise and), | (bitwise or), ^ (bitwise xor), << (left shift), >> (right shift)
+			
+			&
+		    --
+			10  ===> 1010
+			11  ===> 1011
+			        ------
+					 1010 ===> 10
+					------
+			
+			|
+		    --
+			10  ===> 1010
+			11  ===> 1011
+			        ------
+					 1011 ===> 11
+					------
+			^
+		    --
+			10  ===> 1010
+			11  ===> 1011
+			        ------
+					 0001 ==> 1
+					------
+		
+		5. Assignment Operators:
+		------------------------
+			= (assignment operator)
+			+= (increment and assign)
+			x=10
+			x +=10
+		
+		6. Special Operators:
+		---------------------
+			is, is not [Identity operators]
+			in, not in [Memebership operators]
+
+Flow Control:
+=============
+	if,elif, else
+	switch [3.10]
+	
+	Condition 1:
+		Do Something
+	Condition 2:
+		Do Something Else
+	Condition 3:
+		Do Some Other Thing
+	
+	if contion 1:
+		statements
+	elif condition 2:
+		statments
+	else:
+		default statements
+	
+	Possible Combinations:
+	----------------------
+		if
+		if-else
+		if-elif-else
+		if-elif
+	
+Iterative Statements:
+=====================	
+	for loop [finite collection]
+	while loop [infinite collection]
+	
+	break statement:
+	----------------
+		Suppose if we would like to come out of the iteration process by some condition, then we will use break statement
+	continue statement:
+	-------------------
+		When we do not want to do anything in the current execution step while iterating then we use continue statement
+	
+	pass statement:
+	---------------
+		pass is used for not performing anything in conditional as well as in loops
+
+Input/Output in Python:
+=======================
+	input()
+	eval()1

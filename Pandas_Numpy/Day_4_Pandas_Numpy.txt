@@ -1,0 +1,109 @@
+#####################################################
+####  Pandas & Numpy                             ####
+####  ==============                             ####
+####		What is Pandas?                      ####
+####		Data Structures in Pandas            ####
+####		Data Manipulation using Pandas       ####
+####		Data Analysis using Pandas           ####
+####		                                     ####
+####		What is Numpy?                       ####
+####		Why we need Numpy?                   ####
+####		Data Structures in Numpy             ####
+####		Array Operations                     ####
+####		Array Indexing                       ####
+####		Iteration over Numpy Array           ####
+####		Sorting & Searching                  ####
+####		Linear Algebra Functions             ####
+##################################################### 
+
+Pandas:
+=======
+	What is Pandas?
+	---------------
+	Pandas stands for Panel Data
+	This is one of the core library for data manipulation & data analysis
+	
+	Installation of pandas on notebooks:
+	------------------------------------
+		!pip install pandas
+		!pip install numpy
+	Installation of pandas using Command Prompt:
+	--------------------------------------------
+		pip install pandas
+		pip install numpy
+	
+	
+	Data Structures in Pandas:
+	--------------------------
+		Single-dimension and 2-dimensional data structures
+		1. Series (Object):
+		-------------------
+			Series is an one-dimensional labelled array
+			
+			1. Creating Series Object:
+					Creating from List
+					Creating from Dictionary
+					Creating from Tuple
+			2. Access Series Object
+			3. Series Object Atrributes
+			4. Scalar Operations on Series Object
+			5. Object Operations on Series Object
+		
+		2. Data-Frame (Object):
+		-----------------------
+			Dataframe is a 2-dimensional labelled array
+			1. Creating Dataframe Object:
+					Creating from Series
+					Creating from Files (csv,excel,parquet, hdf...etc.)
+		
+			2. Access Dataframe Object
+			3. Dataframe Object Atrributes
+			4. Scalar Operations on Dataframe Object
+			5. Object Operations on Dataframe Object
+	
+	Data Manipulation using Pandas:
+	-------------------------------
+		1. Create a DataFrame
+		2. Reshaping the DataFrame
+				How to Add New Column(s) to DataFrame
+				How to Remove Column(s) from DataFrame
+				How to Rename columns in DataFrame
+				How to take Slice of DataFrame (Subset)
+		3. Grouping the Rows in DataFrame
+		4. SQL like Join Operations
+		5. Combining DataFrames
+		
+	Data Analysis using Pandas:
+	---------------------------
+
+
+Numpy:
+======
+	What is Numpy?
+	--------------
+		It stands for Numerical Python
+		Purely for numerical operations
+		There will not be any String or Object data type columns from numpy
+	
+	Why we need Numpy?
+	------------------
+		Pandas is inefficient in terms of processing mathematical operations on the larger dataset
+		
+	Data Structures in Numpy:
+	-------------------------
+		ndarray [n dimensional array]
+		1D
+		2D
+		3D
+		n>=2  [n dimensional]
+	
+	Creation, Fetching, Iteration & Slicing of Arrays:
+	--------------------------------------------------
+	
+	Arithmetic Operations on Arrays:
+	--------------------------------
+	
+	
+	https://jupyter.org/try-jupyter/lab/index.html
+	
+	
